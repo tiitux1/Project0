@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Note</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"></script>
+</head>
+<body>
+    <h1>Creating a New Note</h1>
+
+    <div class="mermaid">
+      sequenceDiagram
+        participant browser
+        participant server
+
+        browser->>server: User writes a new note
+        browser->>server: POST /new_note
+        server-->>browser: 302 Redirect to /notes
+
+        browser->>server: GET /notes
+        server-->>browser: HTML document
+
+        browser->>server: GET main.css
+        server-->>browser: CSS file
+
+        browser->>server: GET main.js
+        server-->>browser: JS file
+
+        browser->>server: GET data.json
+        server-->>browser: Updated JSON data with new note
+        browser->>server: Render updated notes list
+    </div>
+
+    <script>
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

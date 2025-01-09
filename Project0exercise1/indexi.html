@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes - Single Page App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: black;
+      color: white;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+    li {
+      color: blue;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Notes -- Single Page App</h1>
+  <ul id="notes-list">
+    <li>Sample note 1</li>
+    <li>Sample note 2</li>
+    <li>Sample note 3</li>
+  </ul>
+  <button onclick="addNote()">Add New Note</button>
+
+  <script>
+    function addNote() {
+      const notesList = document.getElementById('notes-list');
+      const newNote = prompt('Enter your new note:');
+      if (newNote) {
+        const listItem = document.createElement('li');
+        listItem.textContent = newNote;
+        notesList.appendChild(listItem);
+      }
+    }
+  </script>
+</body>
+</html>
